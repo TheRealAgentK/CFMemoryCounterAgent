@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<project name="CFMemoryagent" default="compile">
+  <target name="init">
+	<tstamp/>
+	<mkdir dir="build"/>
+  </target>
+
+  <target name="compile" depends="init">
+	<javac srcdir="src" source="1.6" target="1.6"
+		   destdir="build"/>
+	<copy todir="build/META-INF">
+	  <fileset dir="src/META-INF"/>
+	</copy>
+	<jar jarfile="CFMemoryagent.jar" basedir="build"
+		 filesetmanifest="merge"/>
+    <copy todir="/Applications/JRun4/lib" file="CFMemoryagent.jar" />
+  </target>
+
+  <target name="clean">
+	<delete dir="build"/>
+	<delete file="CFMemoryagent.jar"/>
+  </target>
+</project>    

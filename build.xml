@@ -13,6 +13,9 @@
 	</copy>
 	<jar jarfile="CFMemoryagent.jar" basedir="build"
 		 filesetmanifest="merge"/>
+  </target>
+  
+  <target name="deploy">
     <copy todir="/Applications/JRun4/lib" file="CFMemoryagent.jar" />
   </target>
 
